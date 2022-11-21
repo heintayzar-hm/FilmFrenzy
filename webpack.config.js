@@ -6,8 +6,16 @@ module.exports = {
   entry: {
     index: path.resolve(__dirname, './src/index.js'),
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+    historyApiFallback: {
+      index: 'index.html',
+    },
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
+    publicPath: '/',
     filename: '[name].bundle.js',
   },
   plugins: [
@@ -39,6 +47,9 @@ module.exports = {
       },
     },
     ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
   mode: 'development',
 };
