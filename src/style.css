@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Sono:wght@300;400;600;700&display=swap');
+
+* {
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+
+body {
+    font-size: 15px;
+    font-family: 'Sono', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+header .logo {
+    display: flex;
+    justify-content: center;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
