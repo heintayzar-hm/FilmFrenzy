@@ -33,3 +33,12 @@ header nav {
     justify-content: space-evenly;
 }
 
+main {
+    height: 100vh;
+}
+
+footer {
+    padding: 1.5em;
+    border-top: 1px solid black;
+    text-align: center;
+}
