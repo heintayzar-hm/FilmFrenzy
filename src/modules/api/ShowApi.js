@@ -25,6 +25,14 @@ export default class ShowApi {
       }
     }
 
+    recommendations = async (id) => {
+      try {
+        return await axios.get(`${this.movieApi}/${id}/recommendations${this.apiSecretCall}`).then((res) => (res.data));
+      } catch (error) {
+        throw new Error('No such page');
+      }
+    }
+
     show = async (id) => {
       try {
         // eslint-disable-next-line consistent-return
@@ -35,8 +43,8 @@ export default class ShowApi {
         });
       } catch (error) {
         if (error.message === this.noMovieMsg) {
-          window.history.pushState({ path: '404' }, '404', 'error');
-          navigator('/404');
+          // window.history.pushState({ path: '404' }, '404', 'error');
+          // navigator('/404');
           throw new Error('No such page');
         }
         throw new Error('No such page');

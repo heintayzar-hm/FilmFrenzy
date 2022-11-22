@@ -2,12 +2,30 @@ import NoPage from '../404.js';
 // eslint-disable-next-line import/no-cycle
 import routerInstance from './route.js';
 
+const links = () => {
+  // for the links
+  const definedRoutes = Array.from(document.querySelectorAll('.spaLink'));
+  definedRoutes.forEach((route) => {
+    // eslint-disable-next-line no-use-before-define
+    route.addEventListener('click', navigate);
+  });
+};
+/**
+ * scroll to top
+ */
+
+ const scrollToTop = () => {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+};
 /*
 set to el.innerHtml
 */
 const newPage = async (Page, el, obj = {}) => {
   const page = new Page();
   el.innerHTML = await page.html(obj);
+  links();
+  scrollToTop();
 };
 
 // for 404 pages
@@ -73,6 +91,8 @@ const navigate = (event) => {
   }
 };
 
+window.navigate = navigate;
+
 const router = () => {
   // get main
   const main = document.getElementById('main');
@@ -95,12 +115,6 @@ const router = () => {
       noPage(main);
     }
   }
-
-  // for the links
-  const definedRoutes = Array.from(document.querySelectorAll('[spaLink]'));
-  definedRoutes.forEach((route) => {
-    route.addEventListener('click', navigate, false);
-  });
 };
 
 /**

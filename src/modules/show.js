@@ -35,8 +35,16 @@ export default class Show extends ShowApi {
 
   toPeople = (p) => {
     let string = '';
-    for (let i = 0; i < 7; i += 1) {
-      string += `<div class="cast-card"><div class="cast-photo"><img src="${this.photo}${p[i].profile_path}" alt="photo"></div><span>${p[i].name}</span></div>`
+    for (let i = 0; i < 5; i += 1) {
+      string += `<div class="cast-card"><div class="cast-photo"><img src="${this.photo}${p[i].profile_path}" alt="photo"></div><span>${p[i].name}</span></div>`;
+    }
+    return string;
+  }
+
+  toRecommendations = (data) => {
+    let string = '';
+    for (let i = 0; i < 5; i += 1) {
+      string += `<div class="cast-card"><div><img href="/movie#${data[i].id}" onclick="navigate(e)" src="${this.photo}${data[i].poster_path}" class="cast-photo spaLink" alt="photo"></div><span>${data[i].title}</span></div>`;
     }
     return string;
   }
@@ -51,6 +59,7 @@ export default class Show extends ShowApi {
     const releaseDate = res.release_date;
     const language = res.original_language;
     const people = await this.people(id).then((data) => data);
+    const recommendations = await this.recommendations(id).then((data) => data);
     return (`
       <section class="main-section">
       <div id="show">
@@ -76,12 +85,14 @@ export default class Show extends ShowApi {
           </div>
           
           </div>
-          <h2>Featured Casts</h2>
+          <h3>Featured Casts</h3>
           <div class="people">
-          
           ${this.toPeople(people.cast)}
           </div>
-          
+          <h2>Recommendations</h2>
+          <div class="recommendations">
+          ${this.toRecommendations(recommendations.results)}
+          </div>
       </div>
      
   </section>`

@@ -1,6 +1,6 @@
 export default class Main {
     html = () => `<section>
-    <a href="/movie#550" spaLink>Comments</a>
-    <a href="/movie" spaLink>get</a>
+    <button href="/movie#550" class="spaLink">Comments</button>
+    <button href="/movie" class="spaLink">get</button>
 </section>`;
 }
