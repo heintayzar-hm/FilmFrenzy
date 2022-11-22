@@ -1,5 +1,5 @@
 import axios from 'axios';
-// eslint-disable-next-line import/no-cycle
+// eslint-disable-next-line import/no-cycle, import/no-unresolved
 import { navigator } from '../router/router.js';
 
 export default class ShowApi {

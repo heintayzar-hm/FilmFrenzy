@@ -46,7 +46,7 @@ footer {
 .main-section {
   display: flex;
   flex-direction: column;
-   align-items: center;
+  align-items: center;
 }
 
 .main-section #show {
@@ -65,8 +65,6 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-
-
 
 .main-section #show .details {
   display: flex;
@@ -89,7 +87,7 @@ footer {
 
 .main-section #show .details .movie-details {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
   flex-basis: 45%;
   gap: 17px;
 }
@@ -100,8 +98,8 @@ flex-direction: column;
 }
 
 .main-section #show .movie-details .small-details {
-    display: grid;
-    grid-template-columns: 50% 50%;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .main-section #show .movie-details .genres {
@@ -118,37 +116,36 @@ flex-direction: column;
 .people {
   display: flex;
   gap: 20px;
-
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .cast-card {
   width: auto;
-    height: 200px;
+  height: 200px;
   flex-basis: 20%;
   text-align: center;
 }
 
 .cast-photo {
   height: 150px;
-} 
+}
 
 .cast-photo img {
   width: 100%;
-    height: 100%;
-    object-fit: contain;
+  height: 100%;
+  object-fit: contain;
 }
 
 .recommendations {
   display: flex;
   gap: 20px;
-
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 .spaLink {
- cursor: pointer;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 500px) {

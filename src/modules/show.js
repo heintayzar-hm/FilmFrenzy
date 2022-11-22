@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-cycle
+// eslint-disable-next-line import/no-cycle, import/no-unresolved
 import ShowApi from './api/ShowApi.js';
 
 export default class Show extends ShowApi {
