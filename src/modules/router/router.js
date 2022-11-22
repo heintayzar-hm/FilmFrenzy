@@ -1,12 +1,13 @@
 import NoPage from '../404.js';
+// eslint-disable-next-line import/no-cycle
 import routerInstance from './route.js';
 
 /*
 set to el.innerHtml
 */
-const newPage = (Page, el, obj = {}) => {
+const newPage = async (Page, el, obj = {}) => {
   const page = new Page();
-  el.innerHTML = page.html(obj);
+  el.innerHTML = await page.html(obj);
 };
 
 // for 404 pages
@@ -112,8 +113,8 @@ window.addEventListener('popstate', (e) => {
   }
 });
 
-// for intial state
+// for initial state
 const getPath = () => window.location.pathname + window.location.search + window.location.hash;
 const path = getPath();
 window.history.replaceState({ path }, document.title, document.location.href);
-export default router;
+export { router, navigator };

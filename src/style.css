@@ -34,7 +34,7 @@ header nav {
 }
 
 main {
-  height: 100vh;
+  height: auto;
 }
 
 footer {
@@ -51,8 +51,8 @@ footer {
 
 .main-section #show {
   width: 80%;
-  height: 70vh;
-  gap: 10px;
+  height: auto;
+  gap: 30px;
   display: grid;
   grid-template-columns: 100%;
   flex-direction: column;
@@ -62,21 +62,93 @@ footer {
 .main-section #show .popup-header {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
-.main-section #show .movie-img {
-  height: 35vh;
+
+
+.main-section #show .details {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.main-section #show .movie-details {
-  display: grid;
-  grid-template-columns: 100%;
+.show-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-section #show .details .movie-img {
+  width: auto;
+  height: 375px;
+  flex-basis: 45%;
+}
+
+.main-section #show .details .movie-details {
+  display: flex;
+flex-direction: column;
+  flex-basis: 45%;
   gap: 17px;
+}
+
+.show-more {
+  cursor: pointer;
+  font-weight: 900;
 }
 
 .main-section #show .movie-details .small-details {
     display: grid;
     grid-template-columns: 50% 50%;
+}
+
+.main-section #show .movie-details .genres {
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.main-section #show .movie-details .genres span {
+  padding: 5px 7px 5px 7px;
+}
+
+.people {
+  display: flex;
+  gap: 20px;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.people .cast-card {
+  width: auto;
+    height: 200px;
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.cast-photo {
+  height: 150px;
+} 
+
+.cast-photo img {
+  width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cast-card {
+
+}
+
+@media only screen and (max-width: 500px) {
+  .main-section #show .details {
+    display: grid;
+  }
+
+  .people .cast-card {
+    flex-basis: 45%;
+  }
 }
