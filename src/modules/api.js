@@ -6,7 +6,11 @@ const baseUrl = process.env.MOVIEDB_API_LINK;
 const url = `${baseUrl}/popular?api_key=${key}&language=en-US&page=1`;
 
 const getData = async () => {
-  const response = await axios.get(`${url}`);
-  displayMovies(response.data.results);
+  try {
+    const response = await axios.get(`${url}`);
+    displayMovies(response.data.results);
+  } catch (err) {
+    throw new Error('Failed to display');
+  }
 };
 export default getData;
