@@ -42,3 +42,41 @@ footer {
   border-top: 1px solid black;
   text-align: center;
 }
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+}
+
+.main-section #show {
+  width: 80%;
+  height: 70vh;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-section #show .popup-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-section #show .movie-img {
+  height: 35vh;
+}
+
+.main-section #show .movie-details {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 17px;
+}
+
+.main-section #show .movie-details .small-details {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
