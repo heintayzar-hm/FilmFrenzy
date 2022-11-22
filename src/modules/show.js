@@ -35,7 +35,7 @@ export default class Show extends ShowApi {
 
   toPeople = (p) => {
     let string = '';
-    for (let i = 0; i < 5; i += 1) {
+    for (let i = 0; i < 5 && i < p.length; i += 1) {
       string += `<div class="cast-card"><div class="cast-photo"><img src="${this.photo}${p[i].profile_path}" alt="photo"></div><span>${p[i].name}</span></div>`;
     }
     return string;
@@ -43,7 +43,7 @@ export default class Show extends ShowApi {
 
   toRecommendations = (data) => {
     let string = '';
-    for (let i = 0; i < 5; i += 1) {
+    for (let i = 0; i < 5 && i < data.length; i += 1) {
       string += `<div class="cast-card"><div><img href="/movie#${data[i].id}" onclick="navigate(e)" src="${this.photo}${data[i].poster_path}" class="cast-photo spaLink" alt="photo"></div><span>${data[i].title}</span></div>`;
     }
     return string;
