@@ -31,12 +31,17 @@ export default class Show extends ShowApi {
     return string;
   }
 
-  toGenre = (genres) => Array.from(genres, (e) => `<span class="genre" style="background-color:${this.color[Math.floor(Math.random() * this.color.length)]}">${e.name}</span>`).join('');
+  toGenre = (genres) => {
+    if (genres.length > 0) {
+      return Array.from(genres, (e) => `<span class="genre" style="background-color:${this.color[Math.floor(Math.random() * this.color.length)]}">${e.name}</span>`).join('');
+    }
+    return 'N/A';
+  }
 
   toPeople = (p) => {
     let string = '';
     for (let i = 0; i < 5 && i < p.length; i += 1) {
-      string += `<div class="cast-card"><div class="cast-photo"><img src="${this.photo}${p[i].profile_path}" alt="photo"></div><span>${p[i].name}</span></div>`;
+      string += `<div class="cast-card"><div class="cast-photo">${this.checkNull(p[i].profile_path, `<img src="${this.photo}${p[i].profile_path}" alt="photo">`)}</div><span>${p[i].name}</span></div>`;
     }
     return string;
   }
@@ -44,9 +49,16 @@ export default class Show extends ShowApi {
   toRecommendations = (data) => {
     let string = '';
     for (let i = 0; i < 5 && i < data.length; i += 1) {
-      string += `<div class="cast-card"><div><img href="/movie#${data[i].id}" onclick="navigate(e)" src="${this.photo}${data[i].poster_path}" class="cast-photo spaLink" alt="photo"></div><span>${data[i].title}</span></div>`;
+      string += `<div class="cast-card"><div>${this.checkNull(data[i].poster_path, `<img href="/movie#${data[i].id}" onclick="navigate(e)" src="${this.photo}${data[i].poster_path}" class="cast-photo spaLink" alt="photo">`)}</div><span>${data[i].title}</span></div>`;
     }
     return string;
+  }
+
+  checkNull = (data, text) => {
+    if (!data) {
+      return 'N/A';
+    }
+    return text;
   }
 
   html = async ({ hash }) => {
@@ -69,7 +81,7 @@ export default class Show extends ShowApi {
           </div>
           <div class="details">
           <div class="movie-img">
-              <img src="${this.photo}${posterPath}" class="show-img" alt="movie">
+              ${this.checkNull(posterPath, `<img src="${this.photo}${posterPath}" class="show-img" alt="movie">`)}
           </div>
           <div class="movie-details">
               <p>${this.showMore(overview)}</p>
