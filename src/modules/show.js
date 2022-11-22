@@ -6,6 +6,7 @@ export default class Show extends ShowApi {
     super();
     this.color = ['blue', 'green', 'red', 'aqua', 'lightblue'];
     this.photo = 'https://image.tmdb.org/t/p/original';
+    this.itemNotFound = "item_id' not found.";
   }
 
   toText = (num) => {
@@ -49,7 +50,7 @@ export default class Show extends ShowApi {
   toRecommendations = (data) => {
     let string = '';
     for (let i = 0; i < 5 && i < data.length; i += 1) {
-      string += `<div class="cast-card"><div>${this.checkNull(data[i].poster_path, `<img href="/movie#${data[i].id}" onclick="navigate(e)" src="${this.photo}${data[i].poster_path}" class="cast-photo spaLink" alt="photo">`)}</div><span>${data[i].title}</span></div>`;
+      string += `<div class="cast-card"><div>${this.checkNull(data[i].poster_path, `<img href="/movie#${data[i].id}" onclick="navigate(e)" src="${this.photo}${data[i].poster_path}" class="cast-photo spaLink" alt="photo">`)}</div><span>${(data[i].title.length > 20) ? `${data[i].title.slice(0, 20)}...` : data[i].title}</span></div>`;
     }
     return string;
   }
@@ -61,6 +62,39 @@ export default class Show extends ShowApi {
     return text;
   }
 
+  toDate = (str) => {
+    const date = new Date(str);
+    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+  }
+
+  toComments = (data) => {
+    let string = '';
+    data.forEach((comment) => {
+      string += `<div class="comment">
+        <span>${this.toDate(comment.creation_date)}</span>
+        <span>${comment.username}</span>
+        <span>${comment.comment}</span>
+        </div>`;
+    });
+    return string;
+  }
+
+  js = () => {
+    const form = document.querySelector('.form');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const commentsEl = document.querySelector('.comments');
+      this.addComment(e.target.id, e.target[0].value, e.target[1].value).then(async (res) => {
+        if (res === true) {
+          const comments = await this.getComments(e.target.id);
+          commentsEl.innerHTML = this.toComments(comments.data);
+          e.target.reset();
+        }
+      });
+    });
+  }
+
   html = async ({ hash }) => {
     const res = await this.show(Number(hash)).then((data) => data);
     const {
@@ -68,10 +102,11 @@ export default class Show extends ShowApi {
     } = res;
     const posterPath = res.poster_path;
     const rating = res.vote_average;
-    const releaseDate = res.release_date;
+    const releaseDate = this.toDate(res.release_date);
     const language = res.original_language;
     const people = await this.people(id).then((data) => data);
     const recommendations = await this.recommendations(id).then((data) => data);
+    const comments = await this.getComments(id);
     return (`
       <section class="main-section">
       <div id="show">
@@ -105,6 +140,18 @@ export default class Show extends ShowApi {
           <div class="recommendations">
           ${this.toRecommendations(recommendations.results)}
           </div>
+
+          <h3 class="comments-header">Comments(${(comments === false) ? 0 : comments.data.length})</h3>
+          <div class="comments">
+           ${(comments === false) ? 'No comments yet' : this.toComments(comments.data)}
+          </div>
+
+          <h3 class="comment-header">Add a comment</h3>
+          <form id="${id}" class="form comment-form">
+          <input class="input-box input-name" placeholder="Your Name" required>
+          <textarea class="input-box" rows="10" placeholder="Your Insight" required></textarea>
+          <button class="input-btn" type='submit'>Submit</button>
+          </form>
       </div>
      
   </section>`

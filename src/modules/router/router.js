@@ -25,12 +25,13 @@ const scrollToTop = () => {
 set to el.innerHtml
 */
 const newPage = async (Page, el, obj = {}) => {
-  // intiial image should be null
+  // initial image should be null
   const images = document.querySelectorAll('.image');
   images.forEach((image) => { image.innerHTML = ''; });
   imgHelper();
   const page = new Page();
   el.innerHTML = await page.html(obj);
+  await page.js();
   links();
   scrollToTop();
 };
