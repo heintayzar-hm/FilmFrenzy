@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import Main from '../main.js';
 // eslint-disable-next-line import/no-cycle
 import Show from '../show.js';

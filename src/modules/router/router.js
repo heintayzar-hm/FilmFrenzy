@@ -1,6 +1,9 @@
 import NoPage from '../404.js';
 // eslint-disable-next-line import/no-cycle
 import routerInstance from './route.js';
+import imgHelper from '../util.js';
+// eslint-disable-next-line import/no-cycle
+import Main from '../main.js';
 
 const links = () => {
   // for the links
@@ -22,10 +25,25 @@ const scrollToTop = () => {
 set to el.innerHtml
 */
 const newPage = async (Page, el, obj = {}) => {
+  // intiial image should be null
+  const images = document.querySelectorAll('.image');
+  images.forEach((image) => { image.innerHTML = ''; });
+  imgHelper();
   const page = new Page();
   el.innerHTML = await page.html(obj);
   links();
   scrollToTop();
+};
+
+/*
+set to mainPage
+*/
+const mainPage = async () => {
+  // initial image should be null
+  const images = document.querySelectorAll('.image');
+  images.forEach((image) => { image.innerHTML = ''; });
+  const page = new Main();
+  await page.html();
 };
 
 // for 404 pages
@@ -37,7 +55,7 @@ const noPage = (el) => {
 // for main navigation
 const navigator = (path) => {
   // get main
-  const main = document.getElementById('main');
+  const main = document.querySelector('.main');
   let route = path;
   let hash;
   if (route.includes('#')) {
@@ -91,15 +109,14 @@ const navigate = (event) => {
   }
 };
 
-window.navigate = navigate;
-
 const router = () => {
   // get main
-  const main = document.getElementById('main');
+  const main = document.querySelector('.main');
   // path
   const currentPath = window.location.pathname;
   if (currentPath === '/') {
-    newPage(routerInstance.routes[0].page, main);
+    // newPage(routerInstance.routes[0].page, main);
+    mainPage();
   } else {
     // check from routes
     const route = routerInstance.routes.filter((rou) => (rou.path === currentPath || `${rou.path}/` === currentPath))[0];
@@ -131,4 +148,6 @@ window.addEventListener('popstate', (e) => {
 const getPath = () => window.location.pathname + window.location.search + window.location.hash;
 const path = getPath();
 window.history.replaceState({ path }, document.title, document.location.href);
-export { router, navigator };
+export {
+  router, navigator, navigate, links,
+};

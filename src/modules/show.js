@@ -89,7 +89,7 @@ export default class Show extends ShowApi {
           <div class="people">
           ${this.toPeople(people.cast)}
           </div>
-          <h2>Recommendations</h2>
+          <h3>Recommendations</h3>
           <div class="recommendations">
           ${this.toRecommendations(recommendations.results)}
           </div>
