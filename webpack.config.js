@@ -6,8 +6,16 @@ module.exports = {
   entry: {
     index: path.resolve(__dirname, './src/index.js'),
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+    historyApiFallback: {
+      index: 'index.html',
+    },
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
+    publicPath: '/',
     filename: '[name].bundle.js',
   },
   plugins: [
@@ -15,30 +23,32 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'), // template file
       filename: 'index.html', // output file
-    })],
+    }),
+  ],
   module: {
-    rules: [{
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      loader: 'file-loader',
-      options: {
-        name: '/src/assets/[name].[ext]',
+    rules: [
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
-    },
-    {
-      test: /\.css$/i,
-      use: ['style-loader', 'css-loader'],
-    },
-    {
-      test: /\.m?js$/,
-      exclude: /(node_modules|bower_components)/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
         },
       },
-    },
     ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
   mode: 'development',
 };
