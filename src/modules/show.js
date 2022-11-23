@@ -131,9 +131,8 @@ export default class Show extends ShowApi {
     return comments.length;
   }
   /**
-     * to run the javascript code after the
-     * @param Array
-     * @returns string
+     * to run the javascript code after the html from the class is finished
+     * @param ()
      */
 
   js = () => {
@@ -154,6 +153,11 @@ export default class Show extends ShowApi {
     this.commentsLength();
   }
 
+  /**
+     * for main.innerHtml data
+     * @param ()
+     * @return (main.innerHtml: string)
+     */
   html = async ({ hash }) => {
     const res = await this.show(Number(hash)).then((data) => data);
     const {
