@@ -1,6 +1,6 @@
 import imgHelper from './util.js';
 
-import getData from './api/api.js';
+import { getData } from './api/api.js';
 
 // eslint-disable-next-line import/no-cycle
 import { links } from './router/router.js';
