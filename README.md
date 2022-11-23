@@ -84,83 +84,71 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
 In order to run this project you need:
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- Basic Knowledge of HTML, CSS, & JavaScript.
+- Basic knowledge of ES6 syntax.
+- Basic knowledge of Git, GitHub &Gitflow.
+- Basic knowledge of Linters.
+- Basic knowledge of Webpack.
+- Basic knowledge of Jest unit-testing library.
+- Basic knowledge of VS Code or any other code-editors.
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone https://github.com/heintayzar-hm/javascript-capstone.git
 ```
---->
+
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
+
 
 ```sh
-  cd my-project
-  gem install
+  cd PATH
+  npm install
 ```
---->
+
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
 
 ```sh
-  rails server
+  npm start
 ```
---->
+
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+  npm run test
 ```
---->
 
 ### Deployment
 
 You can deploy this project using:
 
-<!--
-Example:
 
 ```sh
+  npm run deploy
 
 ```
- -->
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -172,13 +160,13 @@ Example:
 
 👤 **Author1**
 
-- GitHub: [@Gina](https://github.com/githubhandle)
-- Twitter: [@Gina](https://twitter.com/twitterhandle)
-- LinkedIn: [Gina](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@Gina](https://github.com/ginabeki)
+- Twitter: [@Gina](https://twitter.com/_gina_bw)
+- LinkedIn: [Gina](https://www.linkedin.com/in/gina-beki-a85846103/)
 
 👤 **Author2**
 
-- GitHub: [@Hein Tay](https://github.com/githubhandle)
+- GitHub: [@Hein Tay](https://github.com/heintayzar-hm)
 - Twitter: [@Hein Tay](https://twitter.com/twitterhandle)
 - LinkedIn: [Hein Tay](https://linkedin.com/in/linkedinhandle)
 
@@ -202,7 +190,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/heintayzar-hm/javascript-capstone/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -212,7 +200,7 @@ Feel free to check the [issues page](../../issues/).
 
 > Write a message to encourage readers to support your project
 
-If you like this project...
+If you like this project and would like to have us contribute to your project, kindly shoot us a message to our individual handles above.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -222,7 +210,9 @@ If you like this project...
 
 > Give credit to everyone who inspired your codebase.
 
-I would like to thank...
+I would like to thank
+- [unsplash](https://unsplash.com/) for providing inspiration behind our background image.
+- [canva](https://www.canva.com/) for the logo.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
