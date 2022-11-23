@@ -19,7 +19,7 @@ const displayMovies = async (data) => {
       (info) => info.item_id === movie.id.toString(),
     );
     // show likes
-    const showLikes = likes.length === 0 ? '' : `<span class="like-count">${likes[0].likes}</span> likes`;
+    const showLikes = likes.length === 0 ? '<span class="like-count">0</span> likes' : `<span class="like-count">${likes[0].likes}</span> likes`;
     section.innerHTML += `
       <div class="movie-card">
           <img class="img-card" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="">
