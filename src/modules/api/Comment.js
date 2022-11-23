@@ -8,6 +8,7 @@ export default class Comments {
     this.commentsAllEndPoint = `/apps/${this.involvementApiId}/comments?item_id=`;
   }
 
+    // eslint-disable-next-line consistent-return
     getComments = async (id) => {
       try {
         // eslint-disable-next-line consistent-return
@@ -15,10 +16,11 @@ export default class Comments {
           if (res.status === 200) {
             return res;
           }
-          throw new Error('Fail');
         });
       } catch (error) {
-        return false;
+        if (error.response) {
+          return false;
+        }
       }
     }
 

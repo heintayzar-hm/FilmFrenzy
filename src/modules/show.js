@@ -50,7 +50,7 @@ export default class Show extends ShowApi {
   toRecommendations = (data) => {
     let string = '';
     for (let i = 0; i < 5 && i < data.length; i += 1) {
-      string += `<div class="cast-card"><div>${this.checkNull(data[i].poster_path, `<img href="/movie#${data[i].id}" onclick="navigate(e)" src="${this.photo}${data[i].poster_path}" class="cast-photo spaLink" alt="photo">`)}</div><span>${(data[i].title.length > 20) ? `${data[i].title.slice(0, 20)}...` : data[i].title}</span></div>`;
+      string += `<div class="cast-card"><div>${this.checkNull(data[i].poster_path, `<img href="/movie#${data[i].id}" src="${this.photo}${data[i].poster_path}" class="cast-photo spaLink" alt="photo">`)}</div><span>${(data[i].title.length > 20) ? `${data[i].title.slice(0, 20)}...` : data[i].title}</span></div>`;
     }
     return string;
   }
@@ -79,6 +79,13 @@ export default class Show extends ShowApi {
     return string;
   }
 
+  commentsLength = () => {
+    const commentsLength = document.querySelector('#comments-length');
+    const comments = document.querySelectorAll('.comment');
+    commentsLength.innerHTML = comments.length;
+    return comments.length;
+  }
+
   js = () => {
     const form = document.querySelector('.form');
 
@@ -89,10 +96,12 @@ export default class Show extends ShowApi {
         if (res === true) {
           const comments = await this.getComments(e.target.id);
           commentsEl.innerHTML = this.toComments(comments.data);
+          this.commentsLength();
           e.target.reset();
         }
       });
     });
+    this.commentsLength();
   }
 
   html = async ({ hash }) => {
@@ -112,7 +121,9 @@ export default class Show extends ShowApi {
       <div id="show">
           <div class="popup-header">
               <h2>${title}</h2>
-              <i class="fa-solid fa-xmark"></i>
+              
+              <i href="/" class="spaLink fa-solid fa-xmark"></i>
+              
           </div>
           <div class="details">
           <div class="movie-img">
@@ -141,7 +152,7 @@ export default class Show extends ShowApi {
           ${this.toRecommendations(recommendations.results)}
           </div>
 
-          <h3 class="comments-header">Comments(${(comments === false) ? 0 : comments.data.length})</h3>
+          <h3 class="comments-header">Comments(<span id="comments-length"></span>)</h3>
           <div class="comments">
            ${(comments === false) ? 'No comments yet' : this.toComments(comments.data)}
           </div>

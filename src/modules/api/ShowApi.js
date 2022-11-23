@@ -44,8 +44,6 @@ export default class ShowApi extends Comments {
         });
       } catch (error) {
         if (error.message === this.noMovieMsg) {
-          // window.history.pushState({ path: '404' }, '404', 'error');
-          // navigator('/404');
           throw new Error('No such page');
         }
         throw new Error('No such page');

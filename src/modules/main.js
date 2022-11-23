@@ -12,4 +12,7 @@ export default class Main {
         links();
       });
     };
+
+    js = async () => {
+    }
 }
