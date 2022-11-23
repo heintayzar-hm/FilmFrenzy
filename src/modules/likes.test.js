@@ -15,11 +15,12 @@ const receiveData = async () => {
   }
 };
 test('like counter is working', async () => {
-  await postData(10);
+  const date = (Date.now());
+  await postData(date);
   const data = await receiveData();
   const item = data.filter(
-    (info) => info.item_id === '10',
+    (info) => info.item_id === `${date}`,
   );
 
-  expect(item[0].likes).toBe(4);
+  expect(item[0].likes).toBe(1);
 });
