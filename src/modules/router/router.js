@@ -25,12 +25,13 @@ const scrollToTop = () => {
 set to el.innerHtml
 */
 const newPage = async (Page, el, obj = {}) => {
-  // intiial image should be null
+  // initial image should be null
   const images = document.querySelectorAll('.image');
   images.forEach((image) => { image.innerHTML = ''; });
   imgHelper();
   const page = new Page();
   el.innerHTML = await page.html(obj);
+  await page.js();
   links();
   scrollToTop();
 };
@@ -54,8 +55,6 @@ const noPage = (el) => {
 
 // for main navigation
 const navigator = (path) => {
-  // get main
-  const main = document.querySelector('.main');
   let route = path;
   let hash;
   if (route.includes('#')) {
@@ -64,19 +63,15 @@ const navigator = (path) => {
   }
   const routeInfo = routerInstance.routes.filter((rou) => (rou.path === route || `${rou.path}/` === route))[0];
   if (!routeInfo || path === '404') {
-    noPage(main);
     // eslint-disable-next-line no-use-before-define
     router();
   } else if (routeInfo.params && hash) {
-    newPage(routeInfo.page, main, { hash: Number(window.location.hash) });
     // eslint-disable-next-line no-use-before-define
     router();
   } else if (!routeInfo.params) {
-    newPage(routeInfo.page, main, {});
     // eslint-disable-next-line no-use-before-define
     router();
   } else {
-    noPage(main);
     // eslint-disable-next-line no-use-before-define
     router();
   }
@@ -85,7 +80,7 @@ const navigator = (path) => {
 /**
  * navigate according to button
  */
-const navigate = (event) => {
+const navigate = async (event) => {
   event.preventDefault();
   let route = event.target.attributes[0].value;
   let hash;
