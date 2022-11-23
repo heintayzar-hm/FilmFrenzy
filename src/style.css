@@ -21,22 +21,22 @@ a {
 }
 
 header {
-  height: 100vh;
+  height: 40vh;
 }
 
 .header {
   display: grid;
   grid-template-columns: 40% 60%;
   justify-content: center;
-  padding: 1rem;
   align-items: center;
 }
 
 .logo {
   display: flex;
   justify-content: center;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
+  margin: auto;
 }
 
 nav {
@@ -60,12 +60,21 @@ nav a:focus {
   object-fit: cover;
   object-position: center;
   width: 100%;
-  height: 600px;
+  height: 500px;
+}
+
+.movie-card {
+  flex-basis: 20%;
+}
+
+.underline {
+  text-decoration: underline;
+  text-decoration-color: #35caf1;
+  text-decoration-thickness: 2px;
 }
 
 main {
   display: grid;
-  margin-top: 100px;
 }
 
 .title-icon {
@@ -95,8 +104,9 @@ h2:hover {
 }
 
 .movie-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.2rem;
   padding: 1rem;
 }
