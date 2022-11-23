@@ -35,4 +35,4 @@ const displayMovies = async (data) => {
   });
   main.appendChild(section);
 };
-export default displayMovies;
+export { displayMovies, receiveData };
