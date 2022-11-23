@@ -34,7 +34,7 @@ const likesCounter = () => {
       }
     });
   });
-}
+};
 
 const getData = async () => {
   const response = await axios.get(`${url}`);
