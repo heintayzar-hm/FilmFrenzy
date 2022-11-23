@@ -198,8 +198,6 @@ Feel free to check the [issues page](https://github.com/heintayzar-hm/javascript
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
 If you like this project and would like to have us contribute to your project, kindly shoot us a message to our individual handles above.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -207,8 +205,6 @@ If you like this project and would like to have us contribute to your project, k
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
 
 I would like to thank
 - [unsplash](https://unsplash.com/) for providing inspiration behind our background image.
