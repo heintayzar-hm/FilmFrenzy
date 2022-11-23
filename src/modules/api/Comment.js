@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export default class Comments {
   constructor() {
-    this.involvementApi = process.env.INVOLVEMENT_API_LINK;
-    this.involvementApiId = process.env.INVOLVEMENT_ID;
+    this.involvementApi = process.env.INVOLVEMENT_API_LINK || 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
+    this.involvementApiId = process.env.INVOLVEMENT_ID || 'v0DZEEXmzVXZDs3EcqLI';
     this.commentsEndPoint = `/apps/${this.involvementApiId}/comments`;
     this.commentsAllEndPoint = `/apps/${this.involvementApiId}/comments?item_id=`;
   }

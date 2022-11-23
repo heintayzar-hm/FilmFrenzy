@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { postData } from './api/api.js';
+import { postData } from '../src/modules/api/api.js';
 
 const urlInvolvement = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
 const idInvolvement = 'v0DZEEXmzVXZDs3EcqLI';
