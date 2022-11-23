@@ -76,7 +76,7 @@ main {
   height: 50px;
 }
 
-.fa-heart-o {
+.fa {
   color: #35caf1;
   font-weight: bold;
   display: flex;
@@ -105,6 +105,10 @@ h2:hover {
   width: 100%;
   height: 350px;
   object-fit: cover;
+}
+
+.likes {
+  text-align: right;
 }
 
 .btn {
@@ -284,8 +288,12 @@ footer {
       height: auto;
     }
 
-    .fa-heart-o {
+    .fa {
       display: block;
+      text-align: center;
+    }
+    
+    .likes {
       text-align: center;
     }
   }
