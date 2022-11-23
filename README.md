@@ -62,7 +62,6 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
 
 - **User can add likes by clicking the heart icon next to the movie title**
 - **User can view existing comments and add theirs using the form**
@@ -74,7 +73,6 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
 
 - [Live Demo Link](https://yourdeployedapplicationlink.com)
 
@@ -156,7 +154,6 @@ You can deploy this project using:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
 
 👤 **Author1**
 
@@ -175,8 +172,6 @@ You can deploy this project using:
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [ ] **Search feature that user will use to navigate through the site**
 - [ ] **Feature to redirect the user to the actual video of the movie**
@@ -206,7 +201,7 @@ If you like this project and would like to have us contribute to your project, k
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank
+We would like to thank
 - [unsplash](https://unsplash.com/) for providing inspiration behind our background image.
 - [canva](https://www.canva.com/) for the logo.
 
