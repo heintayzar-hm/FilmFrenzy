@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle, import/no-unresolved
 import ShowApi from './api/ShowApi.js';
+import { encodeHTMLEntities } from './util.js';
 
 export default class Show extends ShowApi {
   constructor() {
@@ -102,20 +103,39 @@ export default class Show extends ShowApi {
     return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
   }
 
+  commentsLooper = (string, data, num) => {
+    window.commentsMore = () => {
+      const commentsEl = document.querySelector('.comments');
+      let str = this.toComments(data, data.length);
+      str += '<span class="comments-more show-more" onclick="commentsLess(event)">Show Less</span>';
+      commentsEl.innerHTML = str;
+    };
+
+    window.commentsLess = () => {
+      const commentsEl = document.querySelector('.comments');
+      commentsEl.innerHTML = this.toComments(data);
+    };
+    for (let i = 0; i < data.length && i < num; i += 1) {
+      const comment = data[i];
+      string += `<div class="comment">
+      <span>${this.toDate(comment.creation_date)}</span>
+      <span>${encodeHTMLEntities(comment.username)}</span>
+      <span>${encodeHTMLEntities(comment.comment)}</span>
+      </div>`;
+      if (num === 7 && i === 6) {
+        string += '<span class="comments-more show-more" onclick="commentsMore(event)">Show More</span>';
+      }
+    }
+    return string;
+  }
+
   /**
      * get in string format for innerHtml adding: adding comments
      * @param (obj: comments)
      * @returns string
      */
-  toComments = (data) => {
-    let string = '';
-    data.forEach((comment) => {
-      string += `<div class="comment">
-        <span>${this.toDate(comment.creation_date)}</span>
-        <span>${comment.username}</span>
-        <span>${comment.comment}</span>
-        </div>`;
-    });
+  toComments = (data, num = 7) => {
+    const string = this.commentsLooper('', data, num);
     return string;
   }
 
