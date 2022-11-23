@@ -13,6 +13,11 @@ export default class ShowApi extends Comments {
     this.noMovieMsg = 'Request failed with status code 404';
   }
 
+    /**
+     * call to movie db for getting people
+     * @param {id} id
+     * @returns api data
+     */
     people = async (id) => {
       try {
         return await axios.get(`${this.movieApi}/${id}/credits${this.apiSecretCall}`).then((res) => (res.data));
@@ -26,6 +31,11 @@ export default class ShowApi extends Comments {
       }
     }
 
+    /**
+     * call to movie db for getting recommended movie
+     * @param {id} id
+     * @returns api data
+     */
     recommendations = async (id) => {
       try {
         return await axios.get(`${this.movieApi}/${id}/recommendations${this.apiSecretCall}`).then((res) => (res.data));
@@ -34,6 +44,11 @@ export default class ShowApi extends Comments {
       }
     }
 
+    /**
+     * call to movie db for getting the movie by id
+     * @param {id} id
+     * @returns api data
+     */
     show = async (id) => {
       try {
         // eslint-disable-next-line consistent-return

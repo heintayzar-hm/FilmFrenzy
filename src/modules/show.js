@@ -9,6 +9,11 @@ export default class Show extends ShowApi {
     this.itemNotFound = "item_id' not found.";
   }
 
+  /**
+     * change to smaller string for the given length text
+     * @param num
+     * @returns string
+     */
   toText = (num) => {
     let string = num;
     for (let i = 3; i < num.toString().length; i += 4) {
@@ -17,6 +22,11 @@ export default class Show extends ShowApi {
     return string;
   }
 
+  /**
+     * get in string format for innerHtml adding: get show more show less button
+     * @param string
+     * @returns string
+     */
   showMore = (str) => {
     let string = str;
     if (str.length > 100) {
@@ -32,6 +42,11 @@ export default class Show extends ShowApi {
     return string;
   }
 
+  /**
+     * get in string format for innerHtml adding: adding genre
+     * @param Array
+     * @returns string
+     */
   toGenre = (genres) => {
     if (genres.length > 0) {
       return Array.from(genres, (e) => `<span class="genre" style="background-color:${this.color[Math.floor(Math.random() * this.color.length)]}">${e.name}</span>`).join('');
@@ -39,6 +54,11 @@ export default class Show extends ShowApi {
     return 'N/A';
   }
 
+  /**
+     * get in string format for innerHtml adding: adding people
+     * @param Array
+     * @returns string
+     */
   toPeople = (p) => {
     let string = '';
     for (let i = 0; i < 5 && i < p.length; i += 1) {
@@ -47,6 +67,11 @@ export default class Show extends ShowApi {
     return string;
   }
 
+  /**
+     * get in string format for innerHtml adding: adding recommendations cards
+     * @param Array
+     * @returns string
+     */
   toRecommendations = (data) => {
     let string = '';
     for (let i = 0; i < 5 && i < data.length; i += 1) {
@@ -55,6 +80,11 @@ export default class Show extends ShowApi {
     return string;
   }
 
+  /**
+     * check null or not if null return 'N/A' otherwise text
+     * @param (data: noyNullStr, text: Str)
+     * @returns string
+     */
   checkNull = (data, text) => {
     if (!data) {
       return 'N/A';
@@ -62,11 +92,21 @@ export default class Show extends ShowApi {
     return text;
   }
 
+  /**
+     * change to the data objects
+     * @param str
+     * @returns string
+     */
   toDate = (str) => {
     const date = new Date(str);
     return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
   }
 
+  /**
+     * get in string format for innerHtml adding: adding comments
+     * @param (obj: comments)
+     * @returns string
+     */
   toComments = (data) => {
     let string = '';
     data.forEach((comment) => {
@@ -79,12 +119,22 @@ export default class Show extends ShowApi {
     return string;
   }
 
+  /**
+     * get the comments length that is in dom
+     * @param
+     * @returns comments length
+     */
   commentsLength = () => {
     const commentsLength = document.querySelector('#comments-length');
     const comments = document.querySelectorAll('.comment');
     commentsLength.innerHTML = comments.length;
     return comments.length;
   }
+  /**
+     * to run the javascript code after the
+     * @param Array
+     * @returns string
+     */
 
   js = () => {
     const form = document.querySelector('.form');

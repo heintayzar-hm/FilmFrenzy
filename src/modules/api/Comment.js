@@ -7,6 +7,11 @@ export default class Comments {
     this.commentsEndPoint = `/apps/${this.involvementApiId}/comments`;
     this.commentsAllEndPoint = `/apps/${this.involvementApiId}/comments?item_id=`;
   }
+  /**
+     * call to Involvement APi for getting comments
+     * @param id
+     * @returns api data
+     */
 
     // eslint-disable-next-line consistent-return
     getComments = async (id) => {
@@ -24,6 +29,11 @@ export default class Comments {
       }
     }
 
+    /**
+     * call to Involvement APi for adding new
+     * @param itemId, username, comment
+     * @returns api data
+     */
     addComment = async (itemId, username, comment) => {
       try {
         // eslint-disable-next-line consistent-return
