@@ -3,10 +3,14 @@ import axios from 'axios';
 const urlInvolvement = process.env.INVOLVEMENT_API_LINK;
 const idInvolvement = process.env.INVOLVEMENT_ID;
 const receiveData = async () => {
-  const response = await axios.get(
-    `${urlInvolvement}/apps/${idInvolvement}/likes/`,
-  );
-  return response.data;
+  try {
+    const response = await axios.get(
+      `${urlInvolvement}/apps/${idInvolvement}/likes/`,
+    );
+    return response.data;
+  } catch (error) {
+    return error;
+  }
 };
 const displayMovies = async (data) => {
   const main = document.querySelector('.main');

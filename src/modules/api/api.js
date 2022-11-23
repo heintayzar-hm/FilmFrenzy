@@ -8,18 +8,20 @@ const urlInvolvement = process.env.INVOLVEMENT_API_LINK;
 const idInvolvement = process.env.INVOLVEMENT_ID;
 
 const postData = async (id) => {
-  const response = await axios.post(
-    `${urlInvolvement}/apps/${idInvolvement}/likes/`,
-    {
-      item_id: `${id}`,
-    },
-  );
-  return (response.data);
+  try {
+    const response = await axios.post(
+      `${urlInvolvement}/apps/${idInvolvement}/likes/`,
+      {
+        item_id: `${id}`,
+      },
+    );
+    return (response.data);
+  } catch (error) {
+    return error;
+  }
 };
 
-const getData = async () => {
-  const response = await axios.get(`${url}`);
-  await displayMovies(response.data.results);
+const likesCounter = () => {
   const items = document.querySelectorAll('.like');
   items.forEach((item) => {
     item.addEventListener('click', async (event) => {
@@ -32,5 +34,11 @@ const getData = async () => {
       }
     });
   });
+}
+
+const getData = async () => {
+  const response = await axios.get(`${url}`);
+  await displayMovies(response.data.results);
+  likesCounter();
 };
 export default getData;
