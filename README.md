@@ -75,7 +75,7 @@
 
 ## Pull Requests
 - [Pull Request 1](https://github.com/heintayzar-hm/javascript-capstone/pull/23)
-- [Pull Request 2](https://github.com/heintayzar-hm/javascript-capstone/pull/24)
+- [Pull Request 2](https://github.com/heintayzar-hm/javascript-capstone/pull/26)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
