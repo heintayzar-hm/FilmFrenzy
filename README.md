@@ -1,4 +1,4 @@
-# javascript-capstone
+# Popular Movies
 <a name="readme-top"></a>
 <div align="center">
 
