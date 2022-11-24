@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/heintayzar-hm/javascript-capstone/issues"
   },
-  "homepage": "https://github.com/heintayzar-hm/javascript-capstone#readme",
+  "homepage": "https://github.com/heintayzar-hm/javascript-capstone/dist",
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",

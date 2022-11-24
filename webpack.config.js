@@ -14,9 +14,8 @@ module.exports = {
     },
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/',
     filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new Dotenv(),

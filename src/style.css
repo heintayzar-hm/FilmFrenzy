@@ -41,6 +41,7 @@ header {
 
 nav {
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
 }
 
@@ -63,8 +64,46 @@ nav a:focus {
   height: 500px;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .movie-card {
   flex-basis: 20%;
+}
+
+.loading-pages {
+  position: absolute;
+  display: flex;
+  font-size: 70px;
+  align-items: center;
+  justify-content: center;
+  background: rgb(53, 202, 241);
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+h5 {
+  position: relative;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+h5::before {
+  content: attr(data-text);
+  position: absolute;
+  overflow: hidden;
+  max-width: 15em;
+  white-space: nowrap;
+  color: black;
+  animation: loader 5s linear;
+}
+
+@keyframes loader {
+  0% {
+    max-width: 0;
+  }
 }
 
 .underline {
@@ -166,8 +205,57 @@ footer {
   align-items: center;
 }
 
+.search {
+  width: 100%;
+  font-size: large;
+  padding: 10px;
+}
+
+.search-wrapper {
+  width: 30%;
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.search-results {
+  position: absolute;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 2px;
+}
+
+.search-result {
+  padding: 10px;
+  background: #35caf1;
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 20px 0;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  display: flex;
+  gap: 9px;
+}
+
+.search-result:hover {
+  background: #00566c;
+  opacity: 1;
+  display: flex;
+  gap: 9px;
+}
+
+.search-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 30%;
+}
+
 .main-section #show {
   width: 80%;
+  padding-top: 70px;
   height: auto;
   gap: 30px;
   display: grid;
