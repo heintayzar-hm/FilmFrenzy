@@ -26,6 +26,7 @@ const displayMovies = async (data) => {
     const showLikes = likes.length === 0 ? '<span class="like-count">0</span> likes' : `<span class="like-count">${likes[0].likes}</span> likes`;
     section.innerHTML += `
       <div class="movie-card">
+
           <img class="img-card" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="image poster">
           <div class="title-icon"><h2>${movie.title}</h2><i id="${movie.id}" class="fa fa-heart-o pointer like"></i></div>
           <div class="likes">${showLikes}</div>
