@@ -4,6 +4,8 @@ import bg from '../bg.jpg';
 const imgHelper = () => {
   const logoImg = document.querySelector('.logo');
   const myIcon = new Image();
+  myIcon.setAttribute('href', '/');
+  myIcon.classList.add('spaLink');
   myIcon.src = logo;
   logoImg.appendChild(myIcon);
 
@@ -15,4 +17,4 @@ const imgHelper = () => {
 
 export const encodeHTMLEntities = (rawStr) => rawStr.replace(/[\u00A0-\u9999<>&]/g, ((i) => `&#${i.charCodeAt(0)};`));
 
-export default imgHelper;
+export { imgHelper };

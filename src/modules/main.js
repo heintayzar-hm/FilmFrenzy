@@ -1,4 +1,4 @@
-import imgHelper from './util.js';
+import { imgHelper } from './util.js';
 
 import { getData } from './api/api.js';
 

@@ -1,7 +1,7 @@
 import NoPage from '../404.js';
 // eslint-disable-next-line import/no-cycle
 import routerInstance from './route.js';
-import imgHelper from '../util.js';
+import { imgHelper } from '../util.js';
 // eslint-disable-next-line import/no-cycle
 import Main from '../main.js';
 
@@ -21,17 +21,29 @@ const scrollToTop = () => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 };
+/**
+ * loading show
+ * @params (loading: true,false)
+ */
+const loading = (bool) => {
+  if (bool === true) {
+    const main = document.querySelector('.main');
+    main.innerHTML = '<div class="loading-pages"><h5 data-text="I am Loading..." class="loading-text">I am Loading...</h5></div>';
+  }
+};
 /*
 set to el.innerHtml
 */
 const newPage = async (Page, el, obj = {}) => {
   // initial image should be null
+  loading(true);
   const images = document.querySelectorAll('.image');
   images.forEach((image) => { image.innerHTML = ''; });
   imgHelper();
   const page = new Page();
   el.innerHTML = await page.html(obj);
   await page.js();
+  loading(false);
   links();
   scrollToTop();
 };
@@ -41,10 +53,13 @@ set to mainPage
 */
 const mainPage = async () => {
   // initial image should be null
+  loading(true);
   const images = document.querySelectorAll('.image');
   images.forEach((image) => { image.innerHTML = ''; });
   const page = new Main();
   await page.html();
+  links();
+  loading(false);
 };
 
 // for 404 pages

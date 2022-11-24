@@ -63,10 +63,45 @@ nav a:focus {
   height: 500px;
 }
 
+.pointer {
+  cursor: pointer;
+}
 .movie-card {
   flex-basis: 20%;
 }
 
+.loading-pages {
+  position: absolute;
+  display: flex;
+  font-size:  70px;
+  align-items: center;
+  justify-content: center;
+  background: rgb(53, 202, 241);
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+h5 {
+  position: relative;
+  color: rgba(0, 0, 0, 0.3)
+}
+
+h5:before {
+  content: attr(data-text);
+  position: absolute;
+  overflow: hidden;
+  max-width: 15em;
+  white-space: nowrap;
+  color: black;
+  animation: loader 5s linear;
+}
+
+@keyframes loader {
+  0% {
+    max-width: 0;
+  }
+}
 .underline {
   text-decoration: underline;
   text-decoration-color: #35caf1;
@@ -166,8 +201,15 @@ footer {
   align-items: center;
 }
 
+.search {
+  width: 30%;
+  font-size: large;
+  padding: 10px;
+}
+
 .main-section #show {
   width: 80%;
+  padding-top: 70px;
   height: auto;
   gap: 30px;
   display: grid;
