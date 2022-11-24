@@ -34,9 +34,17 @@ header {
 .logo {
   display: flex;
   justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+  font-weight: 600;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.logo img {
   width: 75px;
   height: 75px;
-  margin: auto;
 }
 
 nav {
@@ -377,7 +385,7 @@ textarea.input-box {
   font-family: inherit;
   padding: 0.5rem;
   outline: none;
-  width: 375px;
+  width: 100%;
 }
 
 textarea.input-box:hover,
@@ -448,6 +456,14 @@ textarea.input-box:focus {
 
   .people .cast-card {
     flex-basis: 45%;
+  }
+
+  .input-box {
+    width: 100%;
+  }
+
+  .input-name {
+    width: 100%;
   }
 
   @media (max-width: 768px) {

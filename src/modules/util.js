@@ -7,6 +7,12 @@ import { navigate } from './router/router.js';
 
 const photo = 'https://image.tmdb.org/t/p/original';
 
+// total number of movies
+const movieCounter = () => {
+  const items = document.querySelectorAll('.movie-card');
+  return (items.length);
+};
+
 const imgHelper = () => {
   const logoImg = document.querySelector('.logo');
   const myIcon = new Image();
@@ -14,7 +20,10 @@ const imgHelper = () => {
   myIcon.classList.add('spaLink');
   myIcon.src = logo;
   myIcon.alt = 'Logo icon';
+  const span = document.createElement('span');
+  span.innerHTML = 'Popular(<span id="movie-counter"></span>)';
   logoImg.appendChild(myIcon);
+  logoImg.appendChild(span);
 
   const bgImg = document.querySelector('.bg');
   const myBg = new Image();
@@ -75,4 +84,4 @@ const search = async () => {
 
 export const encodeHTMLEntities = (rawStr) => rawStr.replace(/[\u00A0-\u9999<>&]/g, ((i) => `&#${i.charCodeAt(0)};`));
 
-export { imgHelper, search };
+export { imgHelper, search, movieCounter };
