@@ -7,7 +7,8 @@
     "dev": "concurrently \"npm run build\" \"npm run start\"",
     "build": "webpack --watch",
     "start": "webpack serve --open",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/heintayzar-hm/javascript-capstone/issues"
   },
-  "homepage": "https://github.com/heintayzar-hm/javascript-capstone#readme",
+  "homepage": "https://github.com/heintayzar-hm/javascript-capstone/dist",
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
