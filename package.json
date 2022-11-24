@@ -8,7 +8,6 @@
     "build": "webpack --watch",
     "start": "webpack serve --open",
     "test": "jest --watch",
-    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
