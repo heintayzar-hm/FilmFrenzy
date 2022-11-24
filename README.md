@@ -33,10 +33,12 @@
   - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
+![](https://media.giphy.com/media/3F6V4WfEBeHsdTDcu3/giphy.gif)
 
 # 📖 [javascript-capstone] <a name="about-project"></a>
 
-> This JavaScript capstone project is about building web application based on an external API. This project was done in a team of two members. We consumed [moviedbapi](https://www.themoviedb.org/documentation/api) and built a web app consisting two user interfaces.
+
+> This JavaScript capstone project is about building web application based on an external API. This project was done in a team of two members. We consumed [tmdb api](https://www.themoviedb.org/documentation/api) and [Invlovement Api](https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270) built a web app consisting two user interfaces.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -53,12 +55,6 @@
   </ul>
 </details>
 
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Nodejs</a></li>
-  </ul>
-</details>
 
 ### Key Features <a name="key-features"></a>
 
@@ -101,7 +97,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  cd my-folder
+  cd javascript-capstone
   git clone https://github.com/heintayzar-hm/javascript-capstone.git
 ```
 
@@ -113,7 +109,6 @@ Install this project with:
 
 
 ```sh
-  cd PATH
   npm install
 ```
 
@@ -124,7 +119,7 @@ To run the project, execute the following command:
 
 
 ```sh
-  npm start
+  npm run dev
 ```
 
 
@@ -164,8 +159,8 @@ You can deploy this project using:
 👤 **Author2**
 
 - GitHub: [@Hein Tay](https://github.com/heintayzar-hm)
-- Twitter: [@Hein Tay](https://twitter.com/twitterhandle)
-- LinkedIn: [Hein Tay](https://linkedin.com/in/linkedinhandle)
+- Twitter: [@Hein Tay](https://twitter.com/heintayzarhm)
+- LinkedIn: [Hein Tay](https://www.linkedin.com/in/hein-tay-zar)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -228,6 +223,5 @@ We would like to thank
 
 This project is [MIT](./LICENSE) licensed.
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
