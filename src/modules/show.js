@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle, import/no-unresolved
 import ShowApi from './api/ShowApi.js';
+// eslint-disable-next-line import/no-cycle
 import { encodeHTMLEntities } from './util.js';
 
 export default class Show extends ShowApi {
@@ -86,7 +87,7 @@ export default class Show extends ShowApi {
      * @param (data: noyNullStr, text: Str)
      * @returns string
      */
-  checkNull = (data, text) => {
+  checkNull = (data, text = '') => {
     if (!data) {
       return 'N/A';
     }

@@ -1,7 +1,8 @@
+/* eslint-disable import/no-cycle */
 import NoPage from '../404.js';
 // eslint-disable-next-line import/no-cycle
 import routerInstance from './route.js';
-import { imgHelper } from '../util.js';
+import { imgHelper, search } from '../util.js';
 // eslint-disable-next-line import/no-cycle
 import Main from '../main.js';
 
@@ -43,6 +44,7 @@ const newPage = async (Page, el, obj = {}) => {
   const page = new Page();
   el.innerHTML = await page.html(obj);
   await page.js();
+  search();
   loading(false);
   links();
   scrollToTop();
@@ -118,6 +120,10 @@ const navigate = async (event) => {
     navigator('/404');
   }
 };
+/**
+ * For double loading
+ */
+window.navigate = navigate;
 
 const router = () => {
   // get main

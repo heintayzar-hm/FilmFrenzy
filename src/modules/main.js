@@ -1,4 +1,5 @@
-import { imgHelper } from './util.js';
+// eslint-disable-next-line import/no-cycle
+import { imgHelper, search } from './util.js';
 
 import { getData } from './api/api.js';
 
@@ -10,7 +11,8 @@ export default class Main {
       const images = document.querySelectorAll('.image');
       images.forEach((image) => { image.innerHTML = ''; });
       imgHelper();
-      await getData().then(() => {
+      search();
+      await getData().then(async () => {
         links();
       });
     };
