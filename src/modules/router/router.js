@@ -65,33 +65,17 @@ const mainPage = async () => {
 };
 
 // for 404 pages
+// eslint-disable-next-line no-unused-vars
 const noPage = (el) => {
   const page = new NoPage();
   el.innerHTML = page.html();
 };
 
 // for main navigation
+// eslint-disable-next-line no-unused-vars
 const navigator = (path) => {
-  let route = path;
-  let hash;
-  if (route.includes('#')) {
-    const arr = route.split('#');
-    [route, hash] = arr;
-  }
-  const routeInfo = routerInstance.routes.filter((rou) => (rou.path === route || `${rou.path}/` === route))[0];
-  if (!routeInfo || path === '404') {
-    // eslint-disable-next-line no-use-before-define
-    router();
-  } else if (routeInfo.params && hash) {
-    // eslint-disable-next-line no-use-before-define
-    router();
-  } else if (!routeInfo.params) {
-    // eslint-disable-next-line no-use-before-define
-    router();
-  } else {
-    // eslint-disable-next-line no-use-before-define
-    router();
-  }
+  // eslint-disable-next-line no-use-before-define
+  router();
 };
 
 /**
@@ -107,8 +91,8 @@ const navigate = async (event) => {
   }
   const routeInfo = routerInstance.routes.filter((rou) => (rou.path === route || `${rou.path}/` === route))[0];
   if (!routeInfo) {
-    window.history.pushState({ path: '404' }, '404', 'error');
-    navigator('/404');
+    window.history.pushState({ path: '/' }, 'home', '/');
+    navigator('/');
   } else if (routeInfo.params && hash) {
     window.history.pushState({ path: routeInfo.path }, document.title, `${routeInfo.path}#${hash}`);
     navigator(`${routeInfo.path}#${hash}`);
@@ -116,8 +100,8 @@ const navigate = async (event) => {
     window.history.pushState({ path: routeInfo.path }, document.title, routeInfo.path);
     navigator(routeInfo.path);
   } else {
-    window.history.pushState({ path: '404' }, '404', 'error');
-    navigator('/404');
+    window.history.pushState({ path: '/' }, 'home', '/');
+    navigator('/');
   }
 };
 /**
@@ -142,10 +126,12 @@ const router = () => {
       } else if (!route.params) {
         newPage(route.page, main, {});
       } else {
-        noPage(main);
+        window.history.replaceState({}, '', '/');
+        mainPage();
       }
     } else {
-      noPage(main);
+      window.history.replaceState({}, '', '/');
+      mainPage();
     }
   }
 };
