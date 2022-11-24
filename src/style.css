@@ -202,7 +202,7 @@ h2:hover {
 
 footer {
   padding: 1.5em;
-  border-top: 2px solid #F8D03F;
+  border-top: 2px solid #f8d03f;
   text-align: center;
 }
 
@@ -217,7 +217,6 @@ footer {
 
 .search {
   width: 100%;
-  font-size: large;
   padding: 10px;
   border: 2px solid #35caf1;
   border-radius: 4px;
@@ -228,7 +227,7 @@ footer {
 
 .search:hover,
 .search:focus {
-  border: 1px solid #F8D03F;
+  border: 1px solid #f8d03f;
 }
 
 .search:active {
@@ -390,7 +389,7 @@ textarea.input-box {
 
 textarea.input-box:hover,
 textarea.input-box:focus {
-  border: 1px solid #F8D03F;
+  border: 1px solid #f8d03f;
 }
 
 .input-name {
@@ -403,7 +402,7 @@ textarea.input-box:focus {
 
 .input-name:hover,
 .input-name:focus {
-  border: 1px solid #F8D03F;
+  border: 1px solid #f8d03f;
 }
 
 .input-btn {
