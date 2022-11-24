@@ -2,7 +2,7 @@
 import NoPage from '../404.js';
 // eslint-disable-next-line import/no-cycle
 import routerInstance from './route.js';
-import { imgHelper, search } from '../util.js';
+import { imgHelper, movieCounter, search } from '../util.js';
 // eslint-disable-next-line import/no-cycle
 import Main from '../main.js';
 
@@ -45,6 +45,8 @@ const newPage = async (Page, el, obj = {}) => {
   el.innerHTML = await page.html(obj);
   await page.js();
   search();
+  const totalMovies = document.querySelector('#movie-counter');
+  totalMovies.innerHTML = movieCounter();
   loading(false);
   links();
   scrollToTop();
