@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { displayMovies } from '../dom.js';
 
-const key = process.env.MOVIEDB_API_SECRET;
-const baseUrl = process.env.MOVIEDB_API_LINK;
+const key = process.env.MOVIEDB_API_SECRET || '2121a3c4fa9a47bad95689bebaf393ea';
+const baseUrl = process.env.MOVIEDB_API_LINK || 'https://api.themoviedb.org/3/movie';
 const url = `${baseUrl}/popular?api_key=${key}&language=en-US&page=1`;
 const urlInvolvement = process.env.INVOLVEMENT_API_LINK || 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
 const idInvolvement = process.env.INVOLVEMENT_ID || 'v0DZEEXmzVXZDs3EcqLI';

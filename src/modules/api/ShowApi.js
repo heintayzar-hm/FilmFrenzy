@@ -7,9 +7,9 @@ import Comments from './Comment.js';
 export default class ShowApi extends Comments {
   constructor() {
     super();
-    this.movieApi = process.env.MOVIEDB_API_LINK;
+    this.movieApi = process.env.MOVIEDB_API_LINK || 'https://api.themoviedb.org/3/movie';
     this.searchApi = process.env.MOVIEDB_API_SEARCHLINK || 'https://api.themoviedb.org/3/search/movie';
-    this.movieApiSecret = process.env.MOVIEDB_API_SECRET;
+    this.movieApiSecret = process.env.MOVIEDB_API_SECRET || '2121a3c4fa9a47bad95689bebaf393ea';
     this.apiSecretCall = `?api_key=${this.movieApiSecret}&language=en-US`;
     this.searchApiCall = `?api_key=${this.movieApiSecret}&query=`;
     this.noMovieMsg = 'Request failed with status code 404';
