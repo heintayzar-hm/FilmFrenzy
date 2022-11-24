@@ -13,11 +13,13 @@ const imgHelper = () => {
   myIcon.setAttribute('href', '/');
   myIcon.classList.add('spaLink');
   myIcon.src = logo;
+  myIcon.alt = 'Logo icon';
   logoImg.appendChild(myIcon);
 
   const bgImg = document.querySelector('.bg');
   const myBg = new Image();
   myBg.src = bg;
+  myBg.alt = 'background image';
   bgImg.appendChild(myBg);
 };
 
