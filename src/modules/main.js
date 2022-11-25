@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { imgHelper, search, movieCounter } from './util.js';
+import { imgHelper, movieCounter } from './util.js';
 
 import { getData } from './api/api.js';
 
@@ -11,7 +11,6 @@ export default class Main {
       const images = document.querySelectorAll('.image');
       images.forEach((image) => { image.innerHTML = ''; });
       imgHelper();
-      search();
       await getData().then(async () => {
         links();
         const totalMovies = document.querySelector('#movie-counter');

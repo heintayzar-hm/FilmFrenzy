@@ -3,7 +3,6 @@ import logo from '../logo.png';
 import bg from '../bg.jpg';
 import ShowApi from './api/ShowApi.js';
 import Show from './show.js';
-import { navigate } from './router/router.js';
 
 const photo = 'https://image.tmdb.org/t/p/original';
 
@@ -45,7 +44,7 @@ const emptySearchTester = (bool, search) => {
 const searchAdd = (data) => {
   let str = '';
   data.forEach((searchRes) => {
-    str += `<li href='/movie#${searchRes.id}' class="spaLink search-result">
+    str += `<li href='/movie#${searchRes.id}' onclick="navigate(event)" class="spaLink search-result">
     ${new Show().checkNull(searchRes.poster_path, `<img href='/movie#${searchRes.id}' src="${photo}${searchRes.poster_path}" class="search-img spaLink">`)}
     <span href='/movie#${searchRes.id}' class="sapLink">${searchRes.title}</span></li>`;
   });
@@ -54,6 +53,8 @@ const searchAdd = (data) => {
 
 const search = async () => {
   const search = document.querySelector('.search');
+  const searchResults = document.querySelector('.search-results');
+  searchResults.innerHTML = '';
   search.addEventListener('input', async (e) => {
     if (e.target.value.length > 1) {
       emptySearchTester(false, e.target.parentNode);
@@ -63,16 +64,6 @@ const search = async () => {
         emptySearchTester(true, e.target.parentNode);
       } else {
         e.target.parentNode.childNodes[3].innerHTML = searchAdd(res);
-        // for the links
-        const definedRoutes = Array.from(document.querySelectorAll('.spaLink'));
-        definedRoutes.forEach((route) => {
-          // eslint-disable-next-line no-use-before-define
-          route.addEventListener('click', (event) => {
-            navigate(event);
-            e.target.value = '';
-            e.target.parentNode.childNodes[3].innerHTML = '';
-          });
-        });
       }
     } else if (e.target.value.length > 0 && e.target.value.length < 2) {
       emptySearchTester(true, e.target.parentNode);

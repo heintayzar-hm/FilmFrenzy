@@ -44,7 +44,6 @@ const newPage = async (Page, el, obj = {}) => {
   const page = new Page();
   el.innerHTML = await page.html(obj);
   await page.js();
-  search();
   const totalMovies = document.querySelector('#movie-counter');
   totalMovies.innerHTML = movieCounter();
   loading(false);
@@ -111,9 +110,11 @@ const navigate = async (event) => {
  */
 window.navigate = navigate;
 
-const router = () => {
+const router = async () => {
   // get main
   const main = document.querySelector('.main');
+  await search();
+  main.innerHTML = '';
   // path
   const currentPath = window.location.pathname;
   if (currentPath === '/') {
