@@ -245,6 +245,7 @@ ul {
 
 .search-results {
   position: absolute;
+  z-index: 100;
   width: 100%;
   display: grid;
   grid-template-columns: 100%;
