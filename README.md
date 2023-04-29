@@ -1,4 +1,4 @@
-# Popular Movies
+# FilmFrenzy
 <a name="readme-top"></a>
 <div align="center">
 
@@ -10,9 +10,9 @@
 
 # 📗 Table of Contents
 
-- [PopularMovies](#PopularMovies)
+- [FilmFrenzy](#FilmFrenzy)
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[PopularMovies\] ](#-popularmovies-)
+- [📖 \[FilmFrenzy\] ](#-FilmFrenzy-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -35,10 +35,10 @@
 <!-- PROJECT DESCRIPTION -->
 ![](https://media.giphy.com/media/3F6V4WfEBeHsdTDcu3/giphy.gif)
 
-# 📖 [popularmovies] <a name="about-project"></a>
+# 📖 [FilmFrenzy] <a name="about-project"></a>
 
 
-> This JavaScript capstone project is about building web application based on an external API. This project was done in a team of two members. We consumed [tmdb api](https://www.themoviedb.org/documentation/api) and [Invlovement Api](https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270) and built a web app consisting two user interfaces.
+> A movie application where you can see latest movies and series and their info. It is about building web application based on an external API. This project was done in a team of two members. We consumed [tmdb api](https://www.themoviedb.org/documentation/api) and [Invlovement Api](https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270) and built a web app consisting two user interfaces.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -102,8 +102,8 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  cd javascript-capstone
-  git clone https://github.com/heintayzar-hm/javascript-capstone.git
+  cd FilmFrenzy
+  git clone https://github.com/heintayzar-hm/FilmFrenzy.git
 ```
 
 
