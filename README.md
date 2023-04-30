@@ -70,7 +70,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo Link](https://heintayzar-hm.github.io/javascript-capstone/dist/)
+- [Live Demo Link](https://heintayzar-hm.github.io/FilmFrenzy/dist)
 - [KanBan Board](https://github.com/heintayzar-hm/javascript-capstone/projects/1)
 
 ## Pull Requests
